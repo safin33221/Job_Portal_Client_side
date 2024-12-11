@@ -1,26 +1,35 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import register from "../assets/lottie/register.json"
+import AuthContext from '../Context/AuthContext/AuthContext';
 
 const Register = () => {
+    const { createUserWithEmail } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        const user = {email,password}
+        const user = { email, password }
         console.log(user);
+        createUserWithEmail(email,password)
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-200 min-h-screen w-10/12 mx-auto">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="w-6/12 mx-auto">
+                <div className="w-4/12 mx-auto">
                     <Lottie animationData={register} />
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <h1 className="text-5xl font-bold">Register now!</h1>
+                    <h1 className="text-3xl text-center font-bold">Register now!</h1>
 
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
