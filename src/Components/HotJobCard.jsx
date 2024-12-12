@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HotJobCard = ({ job }) => {
     const { _id, title, location, jobType, category, applicationDeadline, salaryRange, description, company, requirements, responsibilities, status, hr_email, hr_name, company_logo } = job
@@ -21,10 +22,10 @@ const HotJobCard = ({ job }) => {
                     {description}
                 </p>
             </div>
-            <div className="px-4 pb-4">
+            <div className="px-4 pb-4 flex items-end">
                 <div className="flex space-x-2">
                     {
-                        requirements.slice(0,3).map(item => <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 ">{item}</span>)
+                        requirements.slice(0, 3).map((item,idx) => <span key={idx} className="px-3 py-1 text-xs text-blue-600 bg-blue-100 ">{item}</span>)
                     }
 
 
@@ -32,7 +33,7 @@ const HotJobCard = ({ job }) => {
             </div>
             <div className="flex justify-between items-center p-4 border-t border-gray-200 bottom-0">
                 <span className=" font-semibold text-green-500">{`${salaryRange.min} - ${salaryRange.max}`}</span>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">Apply Now</button>
+                <Link to={`/jobs/${_id}`} className="px-4 py-2 bg-blue-600 text-white rounded-lg">Apply Now</Link>
             </div>
         </div>
     );
