@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, Links } from 'react-router-dom';
+import { Link, Links, NavLink } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext/AuthContext';
+import  logos  from "../assets/icons8-job-application-parakeet-color/logo.png";
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
     const links = <>
-        <li><a>Item 1</a></li>
-        <li><a>Item 3</a></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink>Item 3</NavLink></li>
     </>
     const handleSignOut = () => {
         signOutUser()
@@ -36,7 +37,8 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Jobs Portal</a>
+                
+                <a className="btn btn-ghost text-xl"><img className='w-12' src={logos} alt="" />Jobs Portal</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
