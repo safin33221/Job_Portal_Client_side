@@ -32,7 +32,7 @@ const HotJobCard = ({ job }) => {
                 </div>
             </div>
             <div className="flex justify-between items-center p-4 border-t border-gray-200 bottom-0">
-                <span className=" font-semibold text-green-500">{`${salaryRange.min} - ${salaryRange.max}`}</span>
+                <span className=" font-semibold text-green-500">{`${salaryRange?.min} - ${salaryRange?.max}`}</span>
                 <Link to={`/jobs/${_id}`} className="px-4 py-2 bg-blue-600 text-white rounded-lg">Apply Now</Link>
             </div>
         </div>
