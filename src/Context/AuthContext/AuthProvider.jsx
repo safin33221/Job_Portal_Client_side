@@ -6,7 +6,7 @@ import { auth } from '../../Firebase/firebase.config';
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loadin, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
 
 
     //create user with email and password
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
         const unsubcriber = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             setLoading(false)
-            console.log(currentUser);
+            
 
         })
         return () => {
@@ -41,6 +41,7 @@ const AuthProvider = ({ children }) => {
         signInUser,
         signOutUser,
         user,
+        loading
     }
     return (
         <AuthContext.Provider value={authValue}>
