@@ -147,7 +147,7 @@ const AddJob = () => {
                         <label className="block mb-2 font-semibold">HR Email</label>
                         <input
                             value={user?.email}
-                            disabled
+                            
                             type="email"
                             name="hr_email"
                             className="w-full p-2 border rounded-md"
